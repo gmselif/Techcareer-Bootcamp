@@ -1010,6 +1010,13 @@
     ).length;
     console.log("How many products are there with prices between 30 and 100 =>", price_between_30_100);
 
+    //Print the products whose names start with the letter a to the console
+    var object_start_a = products.filter(
+        product => { return product.name.startsWith("A") || product.name.startsWith("a") }
+    );
+    console.log("The products whose names start with the letter a/A:");
+    object_start_a.forEach( product => { console.log(product.name); });
+
     
 </script>
 
