@@ -1024,6 +1024,10 @@
     console.log("The products whose names end with the letter a/A:");
     object_end_a.forEach( product => { console.log(product.name); });
 
+    //Print the name of the product with id=10 to the console.
+    var object_id_10 = products.find(product => { return product.id == 10 });
+    console.log("The name of the product with id=10 => ", object_id_10.name);
+
     
 </script>
 
