@@ -1017,6 +1017,13 @@
     console.log("The products whose names start with the letter a/A:");
     object_start_a.forEach( product => { console.log(product.name); });
 
+    //Print the products whose names end with the letter a to the console.
+    var object_end_a = products.filter(
+        product => { return product.name.endsWith("a") || product.name.startsWith("A") }
+    );
+    console.log("The products whose names end with the letter a/A:");
+    object_end_a.forEach( product => { console.log(product.name); });
+
     
 </script>
 
