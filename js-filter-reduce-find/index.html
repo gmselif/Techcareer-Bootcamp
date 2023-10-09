@@ -1038,7 +1038,11 @@
     )
     console.log("The name of the most expensive product => ", highest.name);
 
-    
+    //Print the name of the cheapest product on the console.
+    const lowest = products.reduce(
+        (min, curr) => min.unitPrice < curr.unitPrice ? min : curr
+    )
+    console.log("The name of the most expensive product => ", lowest.name);
 </script>
 
 </html>
