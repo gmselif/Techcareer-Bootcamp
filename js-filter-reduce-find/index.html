@@ -1028,6 +1028,10 @@
     var object_id_10 = products.find(product => { return product.id == 10 });
     console.log("The name of the product with id=10 => ", object_id_10.name);
 
+    //How many products are there whose "discontinued" value is false?
+    var count = products.filter(product => { return !product.discontinued }).length;
+    console.log("How many products are there whose discontinued value is false? => ", count);
+
     
 </script>
 
