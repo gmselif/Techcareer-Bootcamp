@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        h1, h2 {
+            text-align: center;
+        }
+        table {
+            width: 50%;
+            text-align: center;
+            margin-bottom: 200px;
+        }
+        select {
+            width: 10%;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Products</h1>
+    <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Unit Price</th>
+          <th>Stock</th>
+          <th>Delete</th>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h2>Select</h2>
+    <select id="numbers">
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="300">300</option>
+        <option value="400">400</option>
+        <option value="500">500</option>
+    </select>
+
+    <table id="selected">
+    </table>
+</body>
+<script>
+    axios.get('https://northwind.vercel.app/api/products').then( response => {
+        var products = response.data;
+
+        products.forEach(element => {
+            var selectElement = document.querySelector("#numbers");
+            selectElement.addEventListener("change", changeEvent);
+
+            var trElement = document.createElement('tr');
+            trElement.id = element.id;
+            console.log(typeof trElement.id)
+
+            var tdElement1 = document.createElement('td');
+            var tdElement2 = document.createElement('td');
+            var tdElement3 = document.createElement('td');
+            var tdElement4 = document.createElement('td');
+
+            tdElement1.innerHTML = element.id;
+            tdElement2.innerHTML = element.name;
+            tdElement3.innerHTML = element.unitPrice;
+            tdElement4.innerHTML = element.unitsInStock;
+
+            document.querySelector('table').appendChild(trElement);
+            trElement.appendChild(tdElement1);
+            trElement.appendChild(tdElement2);
+            trElement.appendChild(tdElement3);
+            trElement.appendChild(tdElement4);
+            
+            var btnElement = document.createElement('button');
+            btnElement.innerHTML="Delete";
+            btnElement.addEventListener("click", clickEvent);
+            trElement.appendChild(btnElement);
+        });
+    });
+
+    async function clickEvent () {
+
+    }
+
+    async function changeEvent () {
+        
+    }
+</script>
+</html>
