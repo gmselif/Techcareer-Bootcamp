@@ -1032,6 +1032,12 @@
     var count = products.filter(product => { return !product.discontinued }).length;
     console.log("How many products are there whose discontinued value is false? => ", count);
 
+    //Print the name of the most expensive product on the console.
+    const highest = products.reduce(
+        (max, curr) => max.unitPrice > curr.unitPrice ? max : curr
+    )
+    console.log("The name of the most expensive product => ", highest.name);
+
     
 </script>
 
